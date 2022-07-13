@@ -91,7 +91,7 @@ ul {
 .content {
   grid-column-start: 2;
   grid-template-columns: 1fr 4fr;
-  grid-template-rows: .4fr 4fr;
+  grid-template-rows: 0.4fr 4fr;
   display: grid;
   padding: 0;
   max-height: 100%;
@@ -102,8 +102,6 @@ ul {
   grid-area: 1 / 1 / 1 / 3;
   grid-template-columns: 1fr auto;
   grid-template-rows: min-content 1fr;
-  flex-direction: row;
-  flex-wrap: wrap;
   position: relative;
   padding: 1.5rem 2rem;
   background-color: rgb(253, 253, 253);
@@ -153,6 +151,7 @@ ul {
   align-items: center;
   font-size: 1.2rem;
   font-weight: 600;
+  padding-right: 2vw;
 }
 
 .account img {
@@ -176,77 +175,103 @@ ul {
 }
 
 .welcome {
-  display: flex;
+  align-items: center;
+  padding-top: 5px;
+  font-size: 0.7rem;
+}
+
+.welcome span {
+  position: absolute;
+  padding-top: 15px;
 }
 
 .welcome img {
-  height: 50px;
+  height: 70px;
   border-radius: 50%;
-  position: relative;
+  margin-right: 10px;
+  float: left;
 }
 
 .title {
   gap: 1rem;
 }
+
 /*--------PROJECTS--------*/
 
 .projects {
   grid-area: 2 / 1 / 3 / 3;
   grid-template-columns: 1fr auto;
   grid-template-rows: min-content 1fr;
-  gap: 2rem;
+  padding: 2rem;
   display: grid;
+  gap: 1rem;
   grid-template-areas:
-    "projects info"
+  "project-title info-title"
+    "projects info" "projects stats-title"
     "projects stats";
   overflow: auto;
   background-color: rgb(221, 221, 221);
-}
-
-.content h2 {
-  font-size: 1.3rem;
-  margin-bottom: 0.8rem;
 }
 
 .boxes {
   grid-area: projects;
 }
 
+.projects h1 {
+  color: rgb(0, 0, 0);
+  padding-left: 2rem;
+}
+
 .project-box {
-  background-color: blanchedalmond;
+  background-color: rgb(255, 255, 255);
   padding: 2rem;
   border-radius: 0.4rem;
-  box-shadow: 0px 2px 3px rgb(175 175 175);
+  box-shadow: 0px 2px 3px rgb(150, 150, 150);
 }
 
 .projects .boxes {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-auto-rows: 250px;
   gap: 2rem;
   padding: 2rem;
 }
 
 .boxes .project-box {
-  border-left: 10px solid rgb(165, 165, 165);
+  border-left: 10px solid rgb(77, 104, 104);
   display: flex;
   flex-direction: column;
 }
 
 .info {
   grid-area: info;
+  display: flex;
+  flex-direction: column;
 }
 
-.info {
-  background-color: blanchedalmond;
-  padding: 2rem;
+.projects h2 {
+  padding-left: 2rem;
+  padding-bottom: .5rem;
+}
+
+.info p {
+  margin: 0;
+  padding: 0;
+}
+
+.info-text {
+  background-color: rgb(255, 255, 255);
   border-radius: 0.4rem;
-  box-shadow: 0px 2px 3px rgb(175 175 175);
+  box-shadow: 0px 2px 3px rgb(150, 150, 150);
+  border-left: 10px solid rgb(77, 104, 104);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
 }
 
 .projects .info {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-auto-rows: 250px;
   gap: 2rem;
   padding: 2rem;
@@ -256,17 +281,39 @@ ul {
   grid-area: stats;
 }
 
-.stats {
-  background-color: blanchedalmond;
-  padding: 2rem;
+.stats-info {
+  background-color: rgb(255, 255, 255);
   border-radius: 0.4rem;
-  box-shadow: 0px 2px 3px rgb(175 175 175);
+  box-shadow: 0px 2px 3px rgb(150, 150, 150);
+  border-left: 10px solid rgb(77, 104, 104);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
 }
 
 .projects .stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-auto-rows: 250px;
   gap: 2rem;
   padding: 2rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 2rem;
+  justify-content: flex-end;
+}
+
+.btn {
+  padding: .8em 1.75em;
+  background-color: rgb(77, 104, 104);
+  border-radius: 99em;
+  color: white;
+  font-size: 1rem;
+}
+
+button {
+  border: none;
+  cursor: pointer;
 }
