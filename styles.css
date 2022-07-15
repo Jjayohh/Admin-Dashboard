@@ -71,6 +71,10 @@ ul {
   position: relative;
 }
 
+.sidebar-nav li:hover {
+  cursor: pointer;
+}
+
 .sidebar ul {
   align-items: center;
 }
